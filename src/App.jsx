@@ -15,7 +15,41 @@ export default function App(){
  useEffect(()=>{const key=e=>{if(selected!==null){if(e.key==='Escape')setSelected(null);if(e.key==='ArrowRight')setSelected(v=>(v+1)%memories.length);if(e.key==='ArrowLeft')setSelected(v=>(v-1+memories.length)%memories.length)}};addEventListener('keydown',key);return()=>removeEventListener('keydown',key)},[selected]);
  const enter=()=>{setCurtainsOpen(true);setTimeout(()=>setEntered(true),1150)},go=id=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'}),change=n=>setSelected(v=>(v+n+memories.length)%memories.length);
  return <main><Petals/><Curtains open={curtainsOpen}/>
- {!entered?<section className="ticket-entrance"><div className="theatre-noise"/><div className="entrance-lamps"><i/><i/><i/><i/><i/></div><div className="ticket-intro"><span className="eyebrow">THE KENTA &amp; YOU THEATRE</span><h1>Tonight,<br/><em>our story.</em></h1><p>A very small private screening<br/>for one very special person.</p><TearTicket onTear={enter}/><span className="entrance-hint">your ticket is waiting</span></div><div className="aisle-lights">{Array.from({length:10},(_,i)=><i key={i}/>)}</div></section>:<>
+ {!entered?<section className="ticket-entrance"><div className="theatre-noise"/><div className="entrance-lamps"><i/><i/><i/><i/><i/></div><div className="ticket-intro"><span className="eyebrow">THE KENTA &amp; YOU THEATRE</span><h1>Tonight,<br/><em>our story.</em></h1><p>A very small private screening<br/>for one very special person.</p><TearTicket
+  onTear={enter}
+  width={590}
+  height={250}
+  stubSize={150}
+  radius={16}
+  holes={12}
+  holeSize={6}
+  notch={3}
+  roughness={0}
+  tearAngle={30}
+  stretch={30}
+  resistance={0.45}
+  rotate={-2}
+  tilt
+  tiltMax={7}
+  tiltReach={260}
+  parallax={6}
+  perspective={1000}
+  background="#e9dece"
+  color="#352927"
+  border
+  borderColor="#8f7d6b55"
+  borderWidth={1}
+  stubBackground="#e9dece"
+  recenter
+  ariaLabel="Tear off the entrance ticket"
+>
+  <div className="ticket-content">
+    <div className="ticket-watermark"><Heart size={92}/></div>
+    <div className="ticket-topline"><span>OUR LITTLE FOREVER</span><span>500 DAYS</span></div>
+    <div className="ticket-main"><span className="ticket-kicker">ADMIT ONE · PRIVATE SCREENING</span><h2>Our story</h2><p>Five hundred days<br/>of us.</p><div className="ticket-meta"><span>ONE NIGHT ONLY</span><span>♥</span><span>2026</span></div></div>
+  </div>
+  <div className="ticket-stub-content"><span>KEEP THIS</span><span>LITTLE PIECE</span><small>TEAR HERE</small></div>
+</TearTicket><span className="entrance-hint">drag the stub and tear it away</span></div><div className="aisle-lights">{Array.from({length:10},(_,i)=><i key={i}/>)}</div></section>:<>
  <header className="site-header theatre-header"><a className="brand" href="#" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})}}>OUR LITTLE FOREVER</a><nav className="top-nav">{sections.map((id,i)=><button key={id} className={active===i?'active':''} onClick={()=>go(id)}>{['Act I','Act II','Act III','Finale'][i]}</button>)}</nav><button className="music-toggle" onClick={()=>setMusicOn(v=>!v)} aria-pressed={musicOn}><span>{musicOn?<Volume2 size={15}/>:<VolumeX size={15}/>}</span><small>{musicOn?'Music on':'Music off'}</small></button></header>
  <section id="memories" className="memory-section section-pad"><div className="section-heading"><span className="eyebrow">ACT I · THE ARCHIVE</span><h2>Scenes from <em>us.</em></h2><p>Every photograph is a little moment worth keeping.</p></div><MemoryGallery onSelect={setSelected}/></section>
  <section id="celebration" className="celebration-section section-pad"><span className="eyebrow">ACT II · THE MILESTONE</span><div className="spotlight-number"><small>DAY</small><strong>500</strong><em>DAYS</em></div><h2>And the story <em>keeps going.</em></h2><p>Five hundred days of ordinary moments that somehow became our favourite ones.</p><div className="curtain-divider"><i/><span>✦</span><i/></div><span className="script-line">intermission is not the end.</span></section>
