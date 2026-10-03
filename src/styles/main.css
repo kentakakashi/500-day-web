@@ -102,3 +102,14 @@ body{overflow-x:hidden}
  .spotlight-number small{left:8px;top:75px}
  .spotlight-number em{font-size:30px;bottom:18px}
 }
+
+
+/* MEMORY NAVIGATION FIX */
+.gallery-reel{display:flex;align-items:center;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scroll-snap-type:x proximity;padding:4px 2px 9px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.gallery-reel button{flex:0 0 58px;scroll-snap-align:center}
+.gallery-reel::-webkit-scrollbar{height:5px}
+.gallery-reel::-webkit-scrollbar-thumb{background:#b69a6b88;border-radius:99px}
+.gallery-reel::-webkit-scrollbar-track{background:#ffffff0d}
+.modal-arrow{pointer-events:auto}
+.modal-arrow.next,.modal-arrow.prev{z-index:20}
+@media(max-width:760px){.gallery-reel{margin-left:5%;margin-right:5%;padding-bottom:10px;overflow-x:auto}.gallery-reel button{flex-basis:58px}.modal-arrow.next{right:6px}.modal-arrow.prev{left:6px}}
