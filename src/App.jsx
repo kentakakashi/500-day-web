@@ -23,7 +23,10 @@ function MemoryGallery({onSelect}){
 }
 
 function MemoryModal({index,onClose,onNext,onPrev}){
+ const [imageRatio,setImageRatio]=useState(1);
+ useEffect(()=>{setImageRatio(1)},[index]);
  if(index===null)return null; const m=memories[index];
+ const imageClass=imageRatio>1.2?'landscape':imageRatio<0.82?'portrait':'square';
  return <div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&onClose()}><div className="memory-modal" role="dialog" aria-modal="true">
   <button className="modal-close" onClick={onClose} aria-label="Close"><X/></button><button type="button" className="modal-arrow prev" onClick={e=>{e.stopPropagation();onPrev()}} aria-label="Previous"><ArrowLeft/></button>
   <div className={"modal-photo "+imageClass}><div className="modal-placeholder"><Camera size={25}/><span>Memory photograph</span><small>Our 500-day memory archive</small><img src={m.image} alt={m.title} onLoad={e=>setImageRatio(e.currentTarget.naturalWidth/e.currentTarget.naturalHeight)} onError={e=>e.currentTarget.style.display="none"}/></div></div>
