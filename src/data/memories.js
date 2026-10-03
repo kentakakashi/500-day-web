@@ -1,0 +1,1 @@
+export const memories = Array.from({length:24},(_,i)=>({id:i+1,image:'/memories/memory-'+String(i+1).padStart(2,'0')+'.jpg',title:'A little moment',date:'A day to remember',note:'Replace this with the story behind this memory.'}));
