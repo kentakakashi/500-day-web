@@ -42,7 +42,7 @@ export default function App(){
   <Petals/><Curtains open={curtainsOpen}/>
   {!entered?<section className="ticket-entrance">
    <HouseLights/><div className="entrance-lamps"><i/><i/><i/><i/><i/></div>
-   <div className="entrance-copy"><span className="eyebrow">A PRIVATE PERFORMANCE</span><h1>Tonight,<br/><em>Kavi's story.</em></h1><p>Please take your seat.<br/>The house lights are about to go down.</p></div>
+   <div className="entrance-copy"><span className="eyebrow">A PRIVATE PERFORMANCE</span><h1>Tonight,<br/><em>Kavi and Kenta's story.</em></h1><p>Please take your seat.<br/>The house lights are about to go down.</p></div>
    <div className="ticket-wrap"><TearTicket onTear={enter} width={590} height={250} stubSize={150} radius={16} holes={12} holeSize={6} notch={3} roughness={0} tearAngle={30} stretch={30} resistance={0.45} rotate={-2} tilt tiltMax={7} tiltReach={260} parallax={6} perspective={1000} background="#e9dece" color="#352927" border borderColor="#8f7d6b55" borderWidth={1} stubBackground="#e9dece" recenter ariaLabel="Tear off the entrance ticket">
     <div className="ticket-content"><div className="ticket-watermark"><Heart size={92}/></div><div className="ticket-topline"><span>OUR LITTLE FOREVER</span><span>500 DAYS</span></div><div className="ticket-main"><span className="ticket-kicker">ADMIT ONE · PRIVATE SCREENING</span><h2>Our story</h2><p>Five hundred days<br/>of us.</p><div className="ticket-meta"><span>ONE NIGHT ONLY</span><span>♥</span><span>2026</span></div></div></div>
     <div className="ticket-stub-content"><span>KEEP THIS</span><span>LITTLE PIECE</span><small>TEAR HERE</small></div>
