@@ -17,7 +17,7 @@ function MemoryGallery({onSelect}){
   <div className="gallery-cards">{featured.map((m,i)=><button key={m.id} className={'gallery-card card-'+i} onClick={()=>onSelect(i)}>
    <span className="gallery-frame"><span className="gallery-photo"><span className="gallery-placeholder"><Camera size={17}/><small>photograph {String(i+1).padStart(2,'0')}</small></span><img src={m.image} alt="" onError={e=>e.currentTarget.style.display='none'}/></span><span className="frame-caption">SCENE {String(i+1).padStart(2,'0')} · {m.title}</span></span>
   </button>)}</div>
-  <div className="gallery-reel">{memories.slice(8).map((m,i)=><button key={m.id} onClick={()=>onSelect(i+8)} aria-label={'Open memory '+(i+9)}><img src={m.image} alt="" onError={e=>e.currentTarget.style.display='none'}/><span/></button>)}</div>
+  <div className="gallery-reel" role="list" aria-label="Memory film reel">{memories.slice(8).map((m,i)=><button type="button" key={m.id} onClick={()=>onSelect(i+8)} aria-label={'Open memory '+(i+9)}><img src={m.image} alt="" onError={e=>e.currentTarget.style.display='none'}/><span/></button>)}</div>
   <p className="stage-instruction"><Play size={12} fill="currentColor"/> choose a scene</p>
  </div>
 }
@@ -25,10 +25,10 @@ function MemoryGallery({onSelect}){
 function MemoryModal({index,onClose,onNext,onPrev}){
  if(index===null)return null; const m=memories[index];
  return <div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&onClose()}><div className="memory-modal" role="dialog" aria-modal="true">
-  <button className="modal-close" onClick={onClose} aria-label="Close"><X/></button><button className="modal-arrow prev" onClick={onPrev} aria-label="Previous"><ArrowLeft/></button>
+  <button className="modal-close" onClick={onClose} aria-label="Close"><X/></button><button type="button" className="modal-arrow prev" onClick={e=>{e.stopPropagation();onPrev()}} aria-label="Previous"><ArrowLeft/></button>
   <div className="modal-photo"><div className="modal-placeholder"><Camera size={25}/><span>Memory photograph</span><small>Our 500-day memory archive</small><img src={m.image} alt={m.title} onError={e=>e.currentTarget.style.display='none'}/></div></div>
   <div className="modal-copy"><span className="eyebrow">SCENE {String(index+1).padStart(2,'0')} · {m.date}</span><h3>{m.title}</h3><p>{m.note}</p><span className="modal-rule"/><small className="modal-film">FRAME {String(index+1).padStart(2,'0')} / {String(memories.length).padStart(2,'0')}</small></div>
-  <button className="modal-arrow next" onClick={onNext} aria-label="Next"><ArrowRight/></button>
+  <button type="button" className="modal-arrow next" onClick={e=>{e.stopPropagation();onNext()}} aria-label="Next"><ArrowRight/></button>
  </div></div>
 }
 
