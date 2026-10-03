@@ -36,7 +36,7 @@ export default function App(){
  const [entered,setEntered]=useState(false),[curtainsOpen,setCurtainsOpen]=useState(false),[active,setActive]=useState(0),[selected,setSelected]=useState(null),[musicOn,setMusicOn]=useState(false),[letterOpen,setLetterOpen]=useState(false),[finalOpen,setFinalOpen]=useState(false);
  useEffect(()=>{if(!entered)return;const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=acts.indexOf(e.target.id);if(i>=0)setActive(i)}}),{threshold:.35});acts.forEach(id=>{const el=document.getElementById(id);if(el)ob.observe(el)});return()=>ob.disconnect()},[entered]);
  useEffect(()=>{const key=e=>{if(selected!==null){if(e.key==='Escape')setSelected(null);if(e.key==='ArrowRight')setSelected(v=>(v+1)%memories.length);if(e.key==='ArrowLeft')setSelected(v=>(v-1+memories.length)%memories.length)}};addEventListener('keydown',key);return()=>removeEventListener('keydown',key)},[selected]);
- const enter=()=>{setCurtainsOpen(true);setTimeout(()=>setEntered(true),1150)};
+ const enter=()=>{if(curtainsOpen||entered)return;setCurtainsOpen(true);setTimeout(()=>{setCurtainsOpen(false);setEntered(true)},1150)};
  const go=id=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'}), change=n=>setSelected(v=>(v+n+memories.length)%memories.length);
  return <main>
   <Petals/><Curtains open={curtainsOpen}/>
