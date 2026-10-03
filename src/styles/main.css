@@ -131,3 +131,10 @@ body{overflow-x:hidden}
  .modal-photo.square{max-width:250px;aspect-ratio:1/1}
  .modal-photo.landscape{max-width:330px;aspect-ratio:4/3}
 }
+
+/* MEMORY PHOTO PRESENTATION */
+.modal-photo img{transform:scale(1.3);transform-origin:center center}
+.modal-photo{background:#d9cabb}
+@media(max-width:760px){
+ .modal-photo img{transform:scale(1.3)}
+}
