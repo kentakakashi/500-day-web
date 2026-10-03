@@ -59,3 +59,46 @@ body{overflow-x:hidden}
  .scene-note{padding:0}
  .letter-card{width:min(620px,94vw)}
 }
+
+/* FINAL SPACING + ORDERED GALLERY PASS */
+.gallery-stage{padding-bottom:0}
+.gallery-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,220px);gap:24px;padding:28px 42px 0;height:auto;position:relative}
+.gallery-card,.card-0,.card-1,.card-2,.card-3,.card-4,.card-5,.card-6{position:relative;left:auto;right:auto;top:auto;transform:none!important;width:100%;display:flex;justify-content:center}
+.gallery-card:hover{transform:translateY(-8px) scale(1.025)!important}
+.gallery-frame{width:max-content;max-width:100%}
+.gallery-photo{width:130px;height:165px}
+.gallery-cards .gallery-card:nth-child(3) .gallery-photo{width:130px;height:165px}
+.gallery-reel{position:relative;left:auto;right:auto;bottom:auto;margin:18px 7% 0;height:65px}
+.stage-instruction{position:relative;bottom:auto;margin:10px 0 13px}
+.celebration-copy{display:flex;flex-direction:column;align-items:center;text-align:center}
+.spotlight-number{margin:22px auto 8px;align-self:center}
+.ornament-line{width:100%;max-width:230px}
+.celebration-section h2{margin:14px 0}
+.celebration-section .celebration-copy>p{margin:0 auto;max-width:460px}
+.ending-section{padding-bottom:125px;gap:0}
+.ending-button{position:relative;z-index:5;margin:8px 0 24px}
+.final-message{position:relative;z-index:5;margin:8px auto 24px}
+.ending-curtain-line{bottom:28px;z-index:2}
+@media(max-width:760px){
+ .gallery-cards{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,170px);gap:12px;padding:20px 12px 0}
+ .gallery-photo,.gallery-cards .gallery-card:nth-child(3) .gallery-photo{width:88px;height:118px}
+ .gallery-frame{padding:7px 7px 25px}
+ .frame-caption{font-size:6px;left:7px;bottom:6px}
+ .gallery-reel{margin:14px 5% 0}
+ .stage-instruction{margin:9px 0 12px}
+ .spotlight-number{width:320px;height:235px;transform:none;margin:5px auto}
+ .spotlight-number strong{font-size:150px}
+ .spotlight-number small{left:18px;top:82px}
+ .spotlight-number em{right:2px;bottom:24px;font-size:34px}
+ .ending-section{padding-bottom:115px}
+ .ending-button{margin:10px 0 28px}
+ .ending-curtain-line{bottom:24px;gap:9px;font-size:7px}
+}
+@media(max-width:390px){
+ .gallery-cards{grid-template-rows:repeat(4,145px);gap:8px;padding:16px 8px 0}
+ .gallery-photo,.gallery-cards .gallery-card:nth-child(3) .gallery-photo{width:72px;height:98px}
+ .spotlight-number{width:285px;height:210px}
+ .spotlight-number strong{font-size:135px}
+ .spotlight-number small{left:8px;top:75px}
+ .spotlight-number em{font-size:30px;bottom:18px}
+}
